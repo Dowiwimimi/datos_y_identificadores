@@ -1,22 +1,34 @@
+"""evaluación básica de Shinigami - Bleach
+Descripción: uso de la poo y distintos tipos de datos para evaluar si un Shinigami puede usar su Bankai"""
 
-"""evaluación básica de shinigami (Bleach)
-descripción: utiliza distintos tipos de datos para evaluar si un Shinigami puede usar su Bankai"""
+#definición de la clase
+class Shinigami:
 
-# aqui comienza la entrada de datos
-nombre_shinigami = input("Ingrese el nombre del Shinigami: ") 
-nivel_reiatsu = int(input("Ingrese el nivel de reiatsu: "))  
+    def __init__(self, nombre_shinigami, nivel_reiatsu):
+        #atributos del shinigami
+        self.nombre_shinigami = nombre_shinigami
+        self.nivel_reiatsu = nivel_reiatsu
 
-#valor fijo para el ejemplo
-multiplicador_bankai = 1.5 
+    def evaluar_bankai(self):
+        #valor fijo para el ejemplo
+        multiplicador_bankai = 1.5
 
-#evaluación simple
-puede_usar_bankai = nivel_reiatsu >= 1500 * multiplicador_bankai  
+        #evaluación simple
+        return self.nivel_reiatsu >= 1500 * multiplicador_bankai
 
-#esta es la salida de resultados
+
+#aquí comienza la entrada de datos
+nombre_shinigami = input("Ingrese el nombre del Shinigami: ")
+nivel_reiatsu = int(input("Ingrese el nivel de reiatsu: "))
+
+#creación del objeto
+shinigami = Shinigami(nombre_shinigami, nivel_reiatsu)
+
+# esta es la salida de resultados
 print("Resultado de la evaluación")
-print("Shinigami:", nombre_shinigami)
+print("Shinigami:", shinigami.nombre_shinigami)
 
-if puede_usar_bankai:
+if shinigami.evaluar_bankai():
     print("Estado: Puede usar Bankai.")
 else:
-    print("Estado: Aún no puede usar Bankai .")
+    print("Estado: Aún no puede usar Bankai.")
